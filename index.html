@@ -3,86 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MielStore</title>
+    <title>Miel Store</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
 
-    <header>
-        <h1>Miel Store</h1>
-        <p>Venta de miel 100% pura y natural</p>
-    </header>
+    <!-- Contenedores para cada sección -->
+    <div id="header"></div>
+    <div id="nav"></div>
+    <div id="productos"></div>
+    <div id="beneficios"></div>
+    <div id="mision"></div>
+    <div id="contacto"></div>
+    <div id="footer"></div>
 
-    <nav>
-        <a href="#productos">Productos</a>
-        <a href="#beneficios">Beneficios</a>
-        <a href="#mision">Misión y Visión</a>
-        <a href="#contacto">Contacto</a>
-    </nav>
+    <!-- Templates para cada sección -->
+    <template id="header-template">
+        <header>
+            <img src="C:\Users\JuanC\Desktop\MielStore\Imagenes\Logo.jpg" alt="Logo de Miel Store" class="logo">
+            <h1>Venta de miel 100% pura y natural</h1>
+        </header>
+    </template>
 
-    <section id="productos">
-        <h2>Nuestros Productos</h2>
-        <div class="product">
-            <h3>Envase de miel - 500ml</h3>
-            <img src="https://via.placeholder.com/300x200" alt="Envase de miel">
-            <p>Precio: $75 MXN</p>
-            <button>Comprar</button>
-        </div>
-        <div class="product">
-            <h3>Envase de miel - 1lt</h3>
-            <img src="https://via.placeholder.com/300x200" alt="Envase de miel">
-            <p>Precio: $150 MXN</p>
-            <button>Comprar</button>
-        </div>
-    </section>
+    <template id="nav-template">
+        <nav>
+            <a href="#productos">Productos</a>
+            <a href="#beneficios">Beneficios y Datos</a>
+            <a href="#mision">Misión y Visión</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </template>
 
-    <section id="beneficios">
-    <form class="beneficios">
-        <h2>Beneficios de la Miel</h2>
-        <p>La miel es un endulzante natural lleno de beneficios para la salud. Contiene antioxidantes, es antibacteriana y ayuda a mejorar la digestión.</p>
-    </form class>
-    </section>
+    <template id="productos-template">
+        <section id="productos">
+            <h2>Nuestros Productos</h2>
+            <div class="product">
+                <h3>Envase de miel - 500ml</h3>
+                <img src="https://via.placeholder.com/300x200" alt="Envase de miel">
+                <p>Precio: $75 MXN</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <h3>Envase de miel - 1lt</h3>
+                <img src="https://via.placeholder.com/300x200" alt="Envase de miel">
+                <p>Precio: $150 MXN</p>
+                <button>Comprar</button>
+            </div>
+        </section>
+    </template>
 
-    <section id="mision">
-    <form class="mision">
-        <h2>Misión y Visión</h2>
-        <p><b>Misión:</b></p>
-           </p> Ofrecer a nuestros clientes una plataforma en línea fácil de usar para la compra de miel natural, garantizando calidad, conveniencia y un servicio eficiente, mientras promovemos los beneficios de la miel para la salud y fomentamos su consumo responsable.</p>
+    <template id="beneficios-template">
+        <section id="beneficios">
+            <form class="mision">
+                <h2>Beneficios de la Miel</h2>
+                <p>La miel está compuesta principalmente por azúcar, así como por una mezcla de aminoácidos, vitaminas, minerales, hierro, cinc y antioxidantes. Además de usarse como edulcorante natural, la miel se usa como antiinflamatorio, antioxidante y agente antibiótico. Las personas suelen usar la miel por vía oral para tratar la tos y, en forma tópica, para tratar quemaduras y favorecer la curación de las heridas.</p>
+                <h3>Lo que demuestran las investigaciones</h3>
+                <p>Las investigaciones sobre el uso de la miel para tratar afecciones específicas comprenden lo siguiente:</p>
+                <ul>
+                    <li><strong>Enfermedad cardiovascular:</strong> Los antioxidantes de la miel podrían estar asociados con una reducción en el riesgo de enfermedad cardíaca.</li>
+                    <li><strong>Tos:</strong> Ciertos estudios sugieren que tanto la miel de eucalipto como la de cítricos y la de labiatae pueden actuar como inhibidores de la tos confiables en algunas personas con infecciones de las vías respiratorias superiores y con tos nocturna aguda.</li>
+                    <li><strong>Enfermedad gastrointestinal:</strong> La evidencia sugiere que la miel podría ayudar a prevenir trastornos del tubo gastrointestinal, como la diarrea relacionada con la gastroenteritis. La miel también podría ser eficaz como parte de una terapia de rehidratación oral.</li>
+                    <li><strong>Enfermedad neurológica:</strong> Las investigaciones sugieren que la miel podría tener beneficios antidepresivos, anticonvulsivos y contra la ansiedad. En algunos estudios, se ha comprobado que la miel ayuda a prevenir los trastornos de la memoria.</li>
+                    <li><strong>Cuidado de la herida:</strong> Se ha demostrado que el uso tópico de la miel de tipo médico fomenta la curación de las heridas, sobre todo en el caso de las quemaduras.</li>
+                </ul>
+                <p>Es posible que los resultados varíen debido a que no existen métodos estandarizados para producir miel o para verificar su calidad.</p>
 
-            <p><b>Visión:</b></p>
-            <p>Ser el principal canal digital para la venta de miel en el municipio, reconocido por nuestra atención al cliente, productos de alta calidad y un enfoque innovador en la gestión de pedidos y envíos.</p>
+                <h2>Seguridad y Efectos Secundarios</h2>
+                <p>Es seguro usar la miel como edulcorante natural, inhibidora de la tos y producto tópico para llagas y heridas pequeñas.</p>
+                <p>Evita darles miel, ni siquiera una pequeñísima cantidad, a bebés menores de 1 año. La miel puede provocar una afección gastrointestinal poco frecuente pero grave (botulismo infantil) causada por una exposición a las esporas de la bacteria <em>Clostridium botulinum</em>. A partir de las esporas, las bacterias pueden crecer y multiplicarse en el intestino del bebé y producir una toxina peligrosa.</p>
+                <p>Algunas personas son sensibles o alérgicas a los componentes específicos de la miel, en particular, al polen de las abejas. Aunque es poco frecuente, las alergias ocasionadas por el polen de abeja pueden provocar reacciones adversas graves y, en ocasiones, mortales. Algunos de los signos y síntomas de una reacción son los siguientes:</p>
+                <ul>
+                    <li>Silbido al respirar y otros síntomas asmáticos</li>
+                    <li>Mareos</li>
+                    <li>Náuseas</li>
+                    <li>Vómitos</li>
+                    <li>Debilidad</li>
+                    <li>Sudoración excesiva</li>
+                    <li>Desmayos</li>
+                    <li>Ritmo cardíaco irregular (arritmias)</li>
+                    <li>Escozor después de la aplicación tópica</li>
+                </ul>
+                <p>La miel puede afectar los niveles de azúcar en sangre.</p>
+                <h3>Interacciones</h3>
+                <p>En la actualidad, no existe evidencia que demuestre las posibles interacciones de la miel con otros medicamentos.</p>
 
-             <p><b>Objetivo General:</b></p>
-            <p>Desarrollar y mantener una plataforma web que permita a los clientes comprar miel de manera rápida y segura, mejorando la eficiencia del negocio en términos de gestión de pedidos, inventarios y envíos.</p>
+                <h2>Referencias</h2>
+                <p>Mayo Clinic. (s. f.). <em>Miel</em>. <a href="https://www.mayoclinic.org/es/drugs-supplements-honey/art-20363819#:~:text=La%20miel%20est%C3%A1%20compuesta%20principalmente,antiinflamatorio%2C%20antioxidante%20y%20agente%20antibi%C3%B3tico." target="_blank">https://www.mayoclinic.org/es/drugs-supplements-honey/art-20363819#:~:text=La%20miel%20est%C3%A1%20compuesta%20principalmente,antiinflamatorio%2C%20antioxidante%20y%20agente%20antibi%C3%B3tico.</a></p>
 
-            <p><b>Objetivos Específicos:</b></p>
-            <p style="text-align: justify;">Crear una interfaz de usuario intuitiva que facilite la navegación y el proceso de compra en línea.
-            Implementar un sistema de gestión de inventarios que permita un control eficiente de los productos disponibles.
-            Integrar un módulo de gestión de envíos para optimizar la distribución y entrega de los pedidos.
-            Ofrecer información clara sobre los beneficios de la miel y recetas, promoviendo su uso en la vida diaria.
-            Aumentar la visibilidad del negocio en el ámbito digital, impulsando las ventas a través de estrategias de marketing en línea.</p>
-    </form class>
-    </section>
+            </form>
+        </section>
+    </template>
 
-    <section id="contacto">
-        <h2>Contacto</h2>
-        <form class="contact-form">
-            <label for="name">Nombre:</label>
-            <input type="text" id="name" name="name" required>
+    <template id="mision-template">
+        <section id="mision">
+            <form class="mision">
+                <h2>Misión y Visión</h2>
+                <p><b>Misión:</b> Ofrecer a nuestros clientes una plataforma en línea fácil de usar para la compra de miel natural, garantizando calidad, conveniencia y un servicio eficiente, mientras promovemos los beneficios de la miel para la salud y fomentamos su consumo responsable.</p>
+                <p><b>Visión:</b> Ser el principal canal digital para la venta de miel en el municipio, reconocido por nuestra atención al cliente, productos de alta calidad y un enfoque innovador en la gestión de pedidos y envíos.</p>
+                <p><b>Objetivo General:</b> Desarrollar y mantener una plataforma web que permita a los clientes comprar miel de manera rápida y segura, mejorando la eficiencia del negocio en términos de gestión de pedidos, inventarios y envíos.</p>
+            </form>
+        </section>
+    </template>
 
-            <label for="email">Correo electrónico:</label>
-            <input type="email" id="email" name="email" required>
+    <template id="contacto-template">
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <form class="contact-form">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
 
-            <label for="message">Mensaje:</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" required>
 
-            <input type="submit" value="Enviar">
-        </form>
-    </section>
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
 
-    <footer>
-        <p>© 2024 Miel Store. Todos los derechos reservados.</p>
-    </footer>
+                <input type="submit" value="Enviar">
+            </form>
+        </section>
+    </template>
+
+    <template id="footer-template">
+        <footer>
+            <p>© 2024 Miel Store. Todos los derechos reservados.</p>
+        </footer>
+    </template>
+
+    <!-- Script para cargar cada plantilla en su contenedor -->
+    <script>
+        // Función para cargar un template en un contenedor específico
+        function loadTemplate(containerId, templateId) {
+            const container = document.getElementById(containerId);
+            const template = document.getElementById(templateId);
+            const content = document.importNode(template.content, true);
+            container.appendChild(content);
+        }
+
+        // Cargar cada sección en su contenedor correspondiente
+        loadTemplate("header", "header-template");
+        loadTemplate("nav", "nav-template");
+        loadTemplate("productos", "productos-template");
+        loadTemplate("beneficios", "beneficios-template");
+        loadTemplate("mision", "mision-template");
+        loadTemplate("contacto", "contacto-template");
+        loadTemplate("footer", "footer-template");
+    </script>
 
 </body>
 </html>
