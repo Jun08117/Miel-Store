@@ -8,6 +8,8 @@
 </head>
 <body>
 
+    <script src="main.js"></script>
+
     <!-- Contenedores para cada sección -->
     <div id="header"></div>
     <div id="nav"></div>
@@ -37,19 +39,100 @@
     <template id="productos-template">
         <section id="productos">
             <h2>Nuestros Productos</h2>
+
+            <!-- Producto 1 -->
             <div class="product">
                 <h3>Envase de miel - 500ml</h3>
                 <img src="https://via.placeholder.com/300x200" alt="Envase de miel">
                 <p>Precio: $75 MXN</p>
-                <button>Comprar</button>
+                <label for="cantidad1">Selecciona unidades:</label>
+                <select id="cantidad1">
+                    <option value="1">1 unidad</option>
+                    <option value="2">2 unidades</option>
+                    <option value="3">3 unidades</option>
+                    <option value="4">4 unidades</option>
+                    <option value="5">5 unidades</option>
+                </select>
+                <button onclick="mostrarFormulario()">Comprar</button>
             </div>
+
+            <!-- Producto 2 -->
             <div class="product">
-                <h3>Envase de miel - 1lt</h3>
+                <h3>Envase de miel - 1Lt</h3>
                 <img src="https://via.placeholder.com/300x200" alt="Envase de miel">
-                <p>Precio: $150 MXN</p>
-                <button>Comprar</button>
+                <p>Precio: $75 MXN</p>
+                <label for="cantidad1">Selecciona unidades:</label>
+                <select id="cantidad1">
+                    <option value="1">1 unidad</option>
+                    <option value="2">2 unidades</option>
+                    <option value="3">3 unidades</option>
+                    <option value="4">4 unidades</option>
+                    <option value="5">5 unidades</option>
+                </select>
+                <button onclick="mostrarFormulario()">Comprar</button>
             </div>
         </section>
+
+        <!-- Ventana emergente de formulario -->
+        <div class="popup-overlay" id="popup">
+            <div class="popup-content">
+                <span class="close-btn" onclick="cerrarFormulario()">&times;</span>
+                <h2>Datos de Envío</h2>
+                <form class="popup-form" id="formularioEnvio">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" required>
+
+                    <label for="direccion">Dirección:</label>
+                    <input type="text" id="direccion" required>
+
+                    <label for="ciudad">Ciudad:</label>
+                    <input type="text" id="ciudad" required>
+
+                    <label for="codigoPostal">Código Postal:</label>
+                    <input type="text" id="codigoPostal" required>
+
+                    <button type="button" onclick="procesarPedido()">Confirmar Pedido</button>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            // Función para mostrar la ventana emergente
+            function mostrarFormulario() {
+                document.getElementById("popup").style.display = "flex";
+            }
+
+            // Función para cerrar la ventana emergente
+            function cerrarFormulario() {
+                document.getElementById("popup").style.display = "none";
+            }
+
+            // Función para procesar el pedido
+            function procesarPedido() {
+                const nombre = document.getElementById("nombre").value;
+                const direccion = document.getElementById("direccion").value;
+                const ciudad = document.getElementById("ciudad").value;
+                const codigoPostal = document.getElementById("codigoPostal").value;
+
+                // Validación y procesamiento
+                if (nombre && direccion && ciudad && codigoPostal) {
+                    alert(`Pedido confirmado para ${nombre}. ¡Gracias por tu compra!`);
+                    cerrarFormulario();
+                    document.getElementById("formularioEnvio").reset();
+                } else {
+                    alert("Por favor, completa todos los campos.");
+                }
+            }
+        </script>
+
+        <script>
+            // Función para obtener la cantidad seleccionada y mostrar mensaje o realizar acción adicional
+            function comprarProducto(productoId, cantidadId) {
+                const cantidad = document.getElementById(cantidadId).value;
+                alert(`Has seleccionado ${cantidad} unidad(es) para el ${productoId}.`);
+                // Aquí puedes realizar otras acciones, como agregar al carrito con la cantidad seleccionada
+            }
+        </script>
     </template>
 
     <template id="beneficios-template">
